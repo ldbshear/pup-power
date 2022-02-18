@@ -1,0 +1,76 @@
+body {
+  background: radial-gradient(
+    905px at 4.9% 85.8%,
+    rgb(255, 243, 242) 0.1%,
+    rgb(255, 247, 220) 57.6%
+  );
+}
+
+h2 {
+  margin-left: 5px;
+}
+
+.card-header {
+  padding: 16px 8px;
+  background-color: #2f4858;
+  color: white;
+}
+
+.cityName {
+  padding: 30px;
+}
+
+.appBody {
+  max-width: 70%;
+  box-sizing: border-box;
+  margin: 100px auto;
+  padding: 0 10px 10px;
+  border-width: 1px 0;
+  box-shadow: 0 0.5em 1.5em rgb(0 0 0 / 10%);
+  line-height: 1.5;
+}
+
+.currentWeather,
+.weatherForecast {
+  display: flex;
+  flex-wrap: row no wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+  border-bottom: 1px solid black;
+}
+
+svg,
+.degCel {
+  cursor: pointer;
+}
+
+.weatherDetailsContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 10px;
+  padding: 0 12px;
+}
+
+.weatherTipCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 25px;
+}
+.weatherTip {
+  font-size: 20px;
+}
+.weatherPuppy {
+  width: 65px;
+}
+
+.forecastTemps {
+  margin: 0 10px;
+  padding: 0 12px;
+}
+
+.hiTemp {
+  font-weight: bold;
+}
