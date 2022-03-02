@@ -1,4 +1,5 @@
 body {
+  min-height: 100vh;
   background: radial-gradient(
     905px at 4.9% 85.8%,
     rgb(255, 243, 242) 0.1%,
@@ -8,6 +9,13 @@ body {
 
 h2 {
   margin-left: 5px;
+}
+
+ul {
+  list-style-type: none;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .card-header {
@@ -21,7 +29,8 @@ h2 {
 }
 
 .appBody {
-  max-width: 70%;
+  max-width: 60%;
+  min-width: 370px;
   box-sizing: border-box;
   margin: 100px auto;
   padding: 0 10px 10px;
@@ -31,33 +40,50 @@ h2 {
 }
 
 .currentWeather,
-.weatherForecast {
+.weatherForecast,
+.currentWeatherNDetails {
   display: flex;
-  flex-wrap: row no wrap;
+  flex-direction: row wrap;
   justify-content: space-around;
   align-items: center;
   padding: 30px;
   border-bottom: 1px solid black;
 }
 
+.currentWeatherNDetails {
+  border: none;
+}
+
 svg,
-.degCel {
+.degCel,
+.degFar {
   cursor: pointer;
 }
 
 .weatherDetailsContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 10px;
+  list-style-type: none;
   padding: 0 12px;
+}
+
+.mainTemp {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+}
+
+.lgIcon {
+  width: 65px;
+}
+
+.dayTime {
+  margin-left: 8px;
+  line-height: 18px;
 }
 
 .weatherTipCont {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 25px;
 }
 .weatherTip {
   font-size: 20px;
@@ -73,4 +99,17 @@ svg,
 
 .hiTemp {
   font-weight: bold;
+}
+
+@media (max-width: 999px) {
+  ul {
+    padding: 0;
+  }
+  .currentWeatherNDetails {
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
