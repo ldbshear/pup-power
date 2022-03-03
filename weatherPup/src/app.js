@@ -31,41 +31,40 @@ function dayClock() {
   dayNTime.textContent = `${weekDay} ${hour}:${minutes}`;
 }
 
-//Feature #2
-//Add a search engine, when searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
-
 let searchForm = document.getElementById("searchForm");
 let searchIcon = document.getElementById("submitSearch");
-let geoHouse = document.getElementById("geoHouse");
-let getCelsius = document.getElementById("celsius");
-let getFarenheit = document.getElementById("farenheit");
 
 
-//Function to get the search icon to submit instead of a using a button.
 function showWeather(response) {
-console.log(response);
+  console.log(response);
+  document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
+  document.querySelector(
+    "#currentWeatherDetails"
+  ).innerHTML = `${response.data.weather[0].description}`;
+  
 }
 
 //Stops normal submit and refresh behavior
 function getCity(event) {
   event.preventDefault();
   let userEntry = document.querySelector("#userCity").value;
-  requestCityWeather(userEntry);
+  document.getElementById("updateCity").innerHTML = `${userEntry}`;
+  requestCity(userEntry);
 }
 
-function requestCityWeather(userEntry) {
+function requestCity(userEntry) {
+  console.log(userEntry);
   let devKey = "3711439e85a5b0487eab981ef384735a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?${userEntry}&appid=${devKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userEntry}&appid=${devKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
+}
 
 function activate() {
   document.querySelector("form").requestSubmit();
 }
 
-
-  searchIcon.addEventListener("click", activate);
+searchIcon.addEventListener("click", activate);
 searchForm.addEventListener("submit", getCity);
 
-//currentWIcon.innerHTML = `<img src="images/icons/${currentIcon}.png" class="lgIcon" />`;
-//let currentWIcon = document.getElementById("currentWeatherIcon");
-////
+// currentWIcon.innerHTML = `<img src="images/icons/${currentIcon}.png" class="lgIcon" />`;
+// let currentWIcon = document.getElementById("currentWeatherIcon");
