@@ -34,14 +34,22 @@ function dayClock() {
 let searchForm = document.getElementById("searchForm");
 let searchIcon = document.getElementById("submitSearch");
 
-
 function showWeather(response) {
   console.log(response);
   document.getElementById("hiTemp").innerHTML = `${response.data.main.temp}`;
+  let currentIcon = response.data.weather[0].icon;
+  document.getElementById(
+    "currentWeatherIcon"
+  ).innerHTML = `<img src="images/icons/${currentIcon}.png" class="lgIcon" />`;
   document.querySelector(
     "#currentWeatherDetails"
   ).innerHTML = `${response.data.weather[0].description}`;
-  
+  document.querySelector(
+    "#wind"
+  ).innerHTML = `Windspeed: ${response.data.wind.speed}`;
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `Humidity:${response.data.main.humidity}`;
 }
 
 //Stops normal submit and refresh behavior
